@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+
+<robot name="broad_leaved_tree" xmlns:xacro="http://ros.org/wiki/xacro">
+  <gazebo>
+    <static>true</static>
+  </gazebo>
+  <link name="broad_leaved_tree_trunk">
+    <!--MAIN_BODY-->
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_outdoor_models/models/broad_leaved_tree/broad_leaved_tree_trunk.stl"/>
+      </geometry>
+      <material name="IAI_RESCUE/broad_leaved_trunk">
+       <color rgba="0.31 0.15 0.033 1.0"/>
+     </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_outdoor_models/models/broad_leaved_tree/broad_leaved_tree_trunk.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value=".1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+  <link name="broad_leaved_tree_branches">
+    <!--MAIN_BODY-->
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_outdoor_models/models/broad_leaved_tree/broad_leaved_tree_branches.stl"/>
+      </geometry>
+      <material name="IAI_RESCUE/broad_leaved_branch">
+       <color rgba="0.176738 0.295692 0.014561 1.0"/>
+     </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_outdoor_models/models/broad_leaved_tree/broad_leaved_tree_branches.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value=".1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+  
+   <joint name="branch_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="broad_leaved_tree_trunk"/>
+    <child link="broad_leaved_tree_branches"/>
+  </joint>
+</robot>
+ 
