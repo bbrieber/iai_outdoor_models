@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.5">
+  <model name="iai_rock">
+    <static>true</static>
+    <link name="iai_rock">
+      <collision name="collision">
+	<geometry>
+            <mesh>
+	      <uri>model://Rock/Rock.stl</uri>
+	    </mesh>
+          </geometry>
+      </collision>
+      <visual name="vis">
+        <cast_shadows>false</cast_shadows>
+	
+	<geometry>
+            <mesh>
+	      <uri>model://Rock/Rock.dae</uri>
+	    </mesh>
+          </geometry>
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/iai-rescue.material</uri>
+             <name>IAI/Rock1</name>
+          </script>
+        </material>
+      </visual>
+        
+    </link>    
+          <plugin name="scanable" 
+              filename="libiai_object_transmitter.so">
+            <object_type>terrain</object_type><!-- this is used to determine -->
+            <absolute_detection>true</absolute_detection>
+            <attribute key="otype" value="rock"/>
+            <attribute key="manmade" value="false"/>
+            <attribute key="navigation" value="none"/>
+      </plugin> 
+  </model>
+</sdf>
