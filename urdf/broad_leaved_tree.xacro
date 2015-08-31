@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+
+<robot name="broad_leaved_tree" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="broad_leaved_tree_macro" params="name fixed_frame *origin">
+      <gazebo>
+    <static>true</static>
+  </gazebo>
+  <link name="${name}">
+    <!--MAIN_BODY-->
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_outdoor_models/models/broad_leaved_tree/broad_leaved_tree_trunk.stl"/>
+      </geometry>
+      <material name="IAI_RESCUE/broad_leaved_trunk">
+       <color rgba="0.31 0.15 0.033 1.0"/>
+     </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_outdoor_models/models/broad_leaved_tree/broad_leaved_tree_trunk.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value=".1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+  <link name="broad_leaved_tree_branches">
+    <!--MAIN_BODY-->
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_outdoor_models/models/broad_leaved_tree/broad_leaved_tree_branches.stl"/>
+      </geometry>
+      <material name="IAI_RESCUE/broad_leaved_branch">
+       <color rgba="0.176738 0.295692 0.014561 1.0"/>
+     </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://iai_outdoor_models/models/broad_leaved_tree/broad_leaved_tree_branches.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value=".1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+  
+   <joint name="branch_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="${name}"/>
+    <child link="broad_leaved_tree_branches"/>
+  </joint>
+    <joint name="${name}_${fixed_frame}_joint"  type="fixed">
+        <xacro:insert_block name="origin" />
+	<parent link="${fixed_frame}"/>
+	<child link="${name}"/>
+    </joint>
+  </xacro:macro>
+</robot>
+ 
