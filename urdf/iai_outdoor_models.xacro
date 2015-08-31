@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<robot name="iai_outdoor_models" xmlns:xacro="http://ros.org/wiki/xacro">
+<!--
+  just a list of xacro files in this package (in case you plan to use them all)
+  
+  each file includes 1 macro 
+  
+  usage:
+  
+  <xacro:FILENAME_macro name="YOUR_MODELNAME" fixed_frame"YOUR_FIXED_FRAME">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:FILENAME_macro>
+-->
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/bench.xacro" />
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/bench_broken.xacro" />
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/cabin.xacro" />
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/cabin_broken.xacro" />
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/pylon.xacro" />
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/pylon_broken.xacro" />
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/rock.xacro" />
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/conifer.xacro" />
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/broad_leaved_tree.xacro" />
+    
+    <!-- 
+    destroy this one as soon as it is final..
+    -->
+    
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/bridge.xacro" />
+  
+</robot>
+ 
