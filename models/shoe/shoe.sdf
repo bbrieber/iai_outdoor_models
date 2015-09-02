@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.5">
+  <model name="iai_shoe">
+    <static>true</static>
+    <link name="iai_shoe">
+      <collision name="collision">
+	<geometry>
+            <mesh>
+	      <uri>model://shoe/shoe.dae</uri>
+	    </mesh>
+          </geometry>
+      </collision>
+      <visual name="vis">
+        <cast_shadows>false</cast_shadows>
+	
+	<geometry>
+            <mesh>
+	      <uri>model://shoe/shoe.dae</uri>
+	    </mesh>
+          </geometry>
+      </visual>
+        
+    </link>    
+          <plugin name="scanable" 
+              filename="libiai_object_transmitter.so">
+            <object_type>terrain</object_type><!-- this is used to determine -->
+            <absolute_detection>true</absolute_detection>
+            <attribute key="otype" value="shoe"/>
+            <attribute key="manmade" value="true"/>
+            <attribute key="navigation" value="inner"/>
+      </plugin> 
+  </model>
+</sdf>

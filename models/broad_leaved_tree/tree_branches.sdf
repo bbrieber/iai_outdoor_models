@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="iai_tree_branches">
+    <static>true</static>
+    <link name="iai_tree_branches">
+      <collision name="collision">
+	<geometry>
+            <mesh>
+	      <uri>model://broad_leaved_tree/broad_leaved_tree_branches.stl</uri>
+	    </mesh>
+          </geometry>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+	
+	<geometry>
+            <mesh>
+	      <uri>model://broad_leaved_tree/broad_leaved_tree_branches.stl</uri>
+	    </mesh>
+          </geometry>
+      </visual>
+    </link>
+    
+  </model>
+</sdf>

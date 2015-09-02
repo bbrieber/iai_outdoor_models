@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.5">
+  <model name="avalanche_victim">
+    <static>true</static>
+    <link name="avalanche_victim">
+      <collision name="collision">
+	<geometry>
+            <mesh>
+	      <uri>model://avalanche_victim/victim.dae</uri>
+	    </mesh>
+          </geometry>
+      </collision>
+      <visual name="vis">
+        <cast_shadows>false</cast_shadows>
+	
+	<geometry>
+            <mesh>
+	      <uri>model://avalanche_victim/victim.dae</uri>
+	    </mesh>
+          </geometry>
+      </visual>
+        
+    </link>    
+          <plugin name="scanable" 
+              filename="libiai_object_transmitter.so">
+            <object_type>victim</object_type><!-- this is used to determine -->
+            <absolute_detection>false</absolute_detection>
+            <attribute key="otype" value="victim"/>
+            <attribute key="manmade" value="true"/>
+            <attribute key="navigation" value="inner"/>
+      </plugin> 
+  </model>
+</sdf>
