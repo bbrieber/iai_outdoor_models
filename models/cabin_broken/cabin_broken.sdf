@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 
 <sdf version="1.5">
-  <model name="iai_cabin">
+  <model name="iai_cabin_broken">
     <static>true</static>
-    <link name="iai_cabin">
+    <link name="iai_cabin_broken">
       <collision name="collision">
 	<geometry>
             <mesh>
-	      <uri>model://cabin/cabin.dae</uri>
+	      <uri>model://cabin_broken/cabin_broken.dae</uri>
 	    </mesh>
           </geometry>
       </collision>
@@ -16,7 +16,7 @@
 	
 	<geometry>
             <mesh>
-	      <uri>model://cabin/cabin.dae</uri>
+	      <uri>model://cabin_broken/cabin_broken.dae</uri>
 	    </mesh>
           </geometry>
       </visual>

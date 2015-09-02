@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="iai_conifer">
+    <static>true</static>
+    <link name="iai_conifer_trunk">
+      <collision name="collision">
+	<geometry>
+            <mesh>
+	      <uri>model://conifer/conifer_trunk.stl</uri>
+	    </mesh>
+          </geometry>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+	
+	<geometry>
+            <mesh>
+	      <uri>model://conifer/conifer_trunk.stl</uri>
+	    </mesh>
+          </geometry>
+	  <material>
+	    <diffuse>0.319 0.159 0.033 1</diffuse>
+	  </material>
+      </visual>
+    </link>
+    <link name="iai_conifer_branches">
+      <collision name="collision">
+	<geometry>
+            <mesh>
+	      <uri>model://conifer/conifer_branches.stl</uri>
+	    </mesh>
+          </geometry>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+	
+	<geometry>
+            <mesh>
+	      <uri>model://conifer/conifer_branches.stl</uri>
+	    </mesh>
+          </geometry>
+	  <material>
+	    <diffuse>0.177 0.296 0.015 1</diffuse>
+	  </material>
+      </visual>
+    </link>
+    <joint name="j_tree" type="fixed">
+      <parent>iai_conifer_trunk</parent>
+      <child>iai_conifer_branches</child>
+      
+    </joint>
+  </model>
+</sdf>

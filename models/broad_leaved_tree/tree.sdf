@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="iai_broad_leaved_tree">
+    <static>true</static>
+    <link name="iai_tree_trunk">
+      <collision name="collision">
+	<geometry>
+            <mesh>
+	      <uri>model://broad_leaved_tree/broad_leaved_tree_trunk.stl</uri>
+	    </mesh>
+          </geometry>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+	
+	<geometry>
+            <mesh>
+	      <uri>model://broad_leaved_tree/broad_leaved_tree_trunk.stl</uri>
+	    </mesh>
+          </geometry>
+	  <material>
+	    <diffuse>0.319 0.159 0.033 1</diffuse>
+	  </material>
+      </visual>
+    </link>
+    <link name="iai_tree_branches">
+      <collision name="collision">
+	<geometry>
+            <mesh>
+	      <uri>model://broad_leaved_tree/broad_leaved_tree_leaves.stl</uri>
+	    </mesh>
+          </geometry>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+	
+	<geometry>
+            <mesh>
+	      <uri>model://broad_leaved_tree/broad_leaved_tree_leaves.stl</uri>
+	    </mesh>
+          </geometry>
+	  <material>
+	    <diffuse>0.177 0.296 0.015 1</diffuse>
+	  </material>
+      </visual>
+    </link>
+    <joint name="j_tree" type="fixed">
+      <parent>iai_tree_trunk</parent>
+      <child>iai_tree_branches</child>
+      
+    </joint>
+  </model>
+</sdf>

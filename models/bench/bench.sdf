@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 
 <sdf version="1.5">
-  <model name="iai_cabin">
+  <model name="iai_bench">
     <static>true</static>
-    <link name="iai_cabin">
+    <link name="iai_bench">
       <collision name="collision">
 	<geometry>
             <mesh>
-	      <uri>model://cabin/cabin.dae</uri>
+	      <uri>model://bench/bench.stl</uri>
 	    </mesh>
           </geometry>
       </collision>
@@ -16,7 +16,7 @@
 	
 	<geometry>
             <mesh>
-	      <uri>model://cabin/cabin.dae</uri>
+	      <uri>model://bench/bench.dae</uri>
 	    </mesh>
           </geometry>
       </visual>
@@ -26,9 +26,9 @@
               filename="libiai_object_transmitter.so">
             <object_type>terrain</object_type><!-- this is used to determine -->
             <absolute_detection>true</absolute_detection>
-            <attribute key="otype" value="cabin"/>
+            <attribute key="otype" value="bench"/>
             <attribute key="manmade" value="true"/>
-            <attribute key="navigation" value="inner"/>
+            <attribute key="navigation" value="none"/>
       </plugin> 
   </model>
 </sdf>
