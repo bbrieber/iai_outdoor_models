@@ -15,12 +15,16 @@
 	
 	<geometry>
             <mesh>
-	      <uri>model://conifer/conifer_trunk.stl</uri>
+	      <uri>model://conifer/conifer_trunk.dae</uri>
 	    </mesh>
           </geometry>
-	  <material>
-	    <diffuse>0.319 0.159 0.033 1</diffuse>
-	  </material>
+	  
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/iai-rescue.material</uri>
+	     <name>IAI/Trunk</name>
+          </script>
+        </material>
       </visual>
     </link>
     <link name="iai_conifer_branches">
@@ -36,12 +40,16 @@
 	
 	<geometry>
             <mesh>
-	      <uri>model://conifer/conifer_branches.stl</uri>
+	      <uri>model://conifer/conifer_branches.dae</uri>
 	    </mesh>
           </geometry>
-	  <material>
-	    <diffuse>0.177 0.296 0.015 1</diffuse>
-	  </material>
+	  
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/iai-rescue.material</uri>
+	     <name>IAI/ConiferBranches</name>
+          </script>
+        </material>
       </visual>
     </link>
     <joint name="j_tree" type="fixed">

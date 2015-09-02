@@ -15,12 +15,16 @@
 	
 	<geometry>
             <mesh>
-	      <uri>model://broad_leaved_tree/broad_leaved_tree_trunk.stl</uri>
+	      <uri>model://broad_leaved_tree/broad_leaved_tree_trunk.dae</uri>
 	    </mesh>
           </geometry>
-	  <material>
-	    <diffuse>0.319 0.159 0.033 1</diffuse>
-	  </material>
+	  
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/iai-rescue.material</uri>
+	     <name>IAI/Trunk</name>
+          </script>
+        </material>
       </visual>
     </link>
     <link name="iai_tree_branches">
@@ -36,12 +40,16 @@
 	
 	<geometry>
             <mesh>
-	      <uri>model://broad_leaved_tree/broad_leaved_tree_leaves.stl</uri>
+	      <uri>model://broad_leaved_tree/broad_leaved_tree_leaves.dae</uri>
 	    </mesh>
           </geometry>
-	  <material>
-	    <diffuse>0.177 0.296 0.015 1</diffuse>
-	  </material>
+	  
+        <material>
+          <script>
+            <uri>file://Media/materials/scripts/iai-rescue.material</uri>
+	     <name>IAI/TreeLeaves</name>
+          </script>
+        </material>
       </visual>
     </link>
     <joint name="j_tree" type="fixed">
