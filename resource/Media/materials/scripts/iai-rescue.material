@@ -19,6 +19,26 @@ material IAI/Trunk
   }
 }
 
+
+material IAI/Rock
+{
+  technique
+  {
+    pass
+    {
+      scene_blend colour_blend
+      depth_write off
+
+      texture_unit
+      {
+	scale 1.0 1.0
+	tex_coord_set 0
+	texture bark_diffuse.png
+      }
+    }
+  }
+}
+
 material IAI/TreeLeaves
 {
     receive_shadows on 

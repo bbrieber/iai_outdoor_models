@@ -22,6 +22,11 @@
     <xacro:include filename="$(find iai_outdoor_models)/urdf/conifer.xacro" />
     <xacro:include filename="$(find iai_outdoor_models)/urdf/broad_leaved_tree.xacro" />
     
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/avalanche_victim.xacro" />
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/lost_victim.xacro" />
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/shoe.xacro" />
+    <xacro:include filename="$(find iai_outdoor_models)/urdf/skis.xacro" />
+    
     <!-- 
     destroy this one as soon as it is final..
     -->

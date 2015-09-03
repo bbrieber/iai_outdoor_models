@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 
-<robot name="rock" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="rock_macro" params="name fixed_frame *origin">
+<robot name="avalanche_victim" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="avalanche_victim_macro" params="name fixed_frame *origin">
     <gazebo>
       <static>true</static>
     </gazebo>
@@ -10,14 +10,14 @@
       <visual>
 	<origin rpy="0 0 0" xyz="0 0 0"/>
 	<geometry>
-	  <mesh filename="package://iai_outdoor_models/models/rock/Rock.dae"/>
+	  <mesh filename="package://iai_outdoor_models/models/avalanche_victim/victim.dae"/>
 	</geometry>
 <!--
 	Example for Material definition
 	-->
 <!--	
 	
-	<material name="IAI_RESCUE/rock">
+	<material name="IAI_RESCUE/avalanche_victim">
 	<color rgba="0.31 0.15 0.033 1.0"/>
       </material>
 -->
@@ -25,7 +25,7 @@
       <collision>
 	<origin rpy="0 0 0" xyz="0 0 0"/>
 	<geometry>
-	  <mesh filename="package://iai_outdoor_models/models/rock/Rock.stl"/>
+	  <mesh filename="package://iai_outdoor_models/models/avalanche_victim/victim.dae"/>
 	</geometry>
       </collision>
       <inertial>

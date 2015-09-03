@@ -10,7 +10,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://iai_outdoor_models/models/broad_leaved_tree/conifer_trunk.stl"/>
+        <mesh filename="package://iai_outdoor_models/models/conifer/conifer_trunk.stl"/>
       </geometry>
       <material name="IAI_RESCUE/broad_leaved_trunk">
        <color rgba="0.31 0.15 0.033 1.0"/>
@@ -19,7 +19,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://iai_outdoor_models/models/broad_leaved_tree/conifer_trunk.stl"/>
+        <mesh filename="package://iai_outdoor_models/models/conifer/conifer_trunk.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -28,12 +28,12 @@
       <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
   </link>
-  <link name="conifer_branches">
+  <link name="${name}_branches">
     <!--MAIN_BODY-->
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://iai_outdoor_models/models/broad_leaved_tree/conifer_branches.stl"/>
+        <mesh filename="package://iai_outdoor_models/models/conifer/conifer_branches.stl"/>
       </geometry>
       <material name="IAI_RESCUE/broad_leaved_branch">
        <color rgba="0.176738 0.295692 0.014561 1.0"/>
@@ -42,7 +42,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://iai_outdoor_models/models/broad_leaved_tree/conifer_branches.stl"/>
+        <mesh filename="package://iai_outdoor_models/models/conifer/conifer_branches.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -52,10 +52,10 @@
     </inertial>
   </link>
   
-   <joint name="branch_joint" type="fixed">
+   <joint name="${name}_branch_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <parent link="${name}"/>
-    <child link="conifer_branches"/>
+    <child link="${name}_branches"/>
   </joint>
     <joint name="${name}_${fixed_frame}_joint"  type="fixed">
         <xacro:insert_block name="origin" />

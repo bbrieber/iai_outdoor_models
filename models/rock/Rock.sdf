@@ -7,7 +7,7 @@
       <collision name="collision">
 	<geometry>
             <mesh>
-	      <uri>model://Rock/Rock.stl</uri>
+	      <uri>model://rock/Rock.stl</uri>
 	    </mesh>
           </geometry>
       </collision>
@@ -16,21 +16,23 @@
 	
 	<geometry>
             <mesh>
-	      <uri>model://Rock/Rock.dae</uri>
+	      <uri>model://rock/Rock.dae</uri>
 	    </mesh>
           </geometry>
-        <material>
-          <script>
+        <!--
+          <material>
+	  <script>
             <uri>file://Media/materials/scripts/iai-rescue.material</uri>
              <name>IAI/Rock1</name>
           </script>
         </material>
+	  -->
       </visual>
         
-    </link>    
+    </link>
           <plugin name="scanable" 
               filename="libiai_object_transmitter.so">
-            <object_type>terrain</object_type><!-- this is used to determine -->
+            <object_type>terrain</object_type>
             <absolute_detection>true</absolute_detection>
             <attribute key="otype" value="rock"/>
             <attribute key="manmade" value="false"/>
