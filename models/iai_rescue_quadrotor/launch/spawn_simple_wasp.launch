@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<launch>
+   <arg name="name" default="iai_wasp"/>
+   <arg name="tf_prefix" default="$(optenv ROS_NAMESPACE)"/>
+   <arg name="x" default="0.0"/>
+   <arg name="y" default="0.0"/>
+   <arg name="z" default="0.103"/>
+   <!--
+   <arg name="model" default="$(find iai_rescue_quadrotor)/urdf/iai_quadrotor.gazebo.urdf.xacro"/>
+   -->  
+  <arg name="model" default="$(find iai_rescue_quadrotor)/urdf/simple_quadrotor.xacro"/>
+   
+  <arg name="joy_dev" default="/dev/input/js0" />
+
+  <arg name="use_ground_truth_for_tf" default="true"/>
+  <arg name="use_ground_truth_for_control" default="true"/>
+  <arg name="use_pose_estimation" if="$(arg use_ground_truth_for_control)" default="false"/>
+  <arg name="use_pose_estimation" unless="$(arg use_ground_truth_for_control)" default="true"/>
+  
+  <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+    <arg name="name" default="$(arg name)"/>
+    <arg name="model" value="$(arg model)"/>
+    <arg name="use_ground_truth_for_tf" value="true"/>
+    <arg name="use_ground_truth_for_control" value="true"/>
+    
+    <arg name="use_pose_estimation" value="false"/>
+    
+     <arg name="tf_prefix" default="$(arg tf_prefix)"/>
+     <arg name="x" default="$(arg x)"/>
+     <arg name="y" default="$(arg y)"/>
+     <arg name="z" default="$(arg z)"/>
+  <!--
+    <arg name="use_ground_truth_for_tf" value="$(arg use_ground_truth_for_tf)"/>
+    <arg name="use_ground_truth_for_control" value="$(arg use_ground_truth_for_control)"/>
+    
+    <arg name="use_pose_estimation" value="$(arg use_pose_estimation)"/>
+    -->
+  </include>
+   
+   
+  <node name="joy" pkg="joy" type="joy_node" output="screen" >
+    <param name="dev" value="$(arg joy_dev)" />
+  </node>
+
+  <!-- Note that axis IDs are those from the joystick message plus one, to be able to invert axes by specifiying either positive or negative axis numbers.-->
+  <!-- Axis 2 from joy message thus has to be set as '3' or '-3'(inverted mode) below-->
+  <node name="quadrotor_teleop" pkg="hector_quadrotor_teleop" type="quadrotor_teleop">
+    <param name="x_axis" value="2"/>
+    <param name="y_axis" value="4"/>
+    <param name="z_axis" value="5"/>
+    <param name="yaw_axis" value="1"/>
+  </node>
+  
+  <!--
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="gl_robot_state_publisher" output="screen" >
+     <param name="publish_frequency" type="double" value="50.0" />
+     
+     <param name="tf_prefix" type="string" value="$(arg robot_namespace)" />
+     
+   </node>
+  -->
+</launch>

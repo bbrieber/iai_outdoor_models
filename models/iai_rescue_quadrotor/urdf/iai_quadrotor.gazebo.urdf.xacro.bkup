@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<robot name="iai_wasp" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find hector_sensors_description)/urdf/sonar_sensor.urdf.xacro" />
+  <xacro:property name="pi" value="3.1415926535897931" />
+
+  <!-- Main quadrotor link -->
+  <xacro:macro name="quadrotor_base_macro">
+    <link name="base_link">
+      <inertial>
+        <mass value="1.477" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.01152" ixy="0.0" ixz="0.0" iyy="0.01152" iyz="0.0" izz="0.0218" />
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iai_rescue_quadrotor/meshes/iai_wasp.dae"/>
+        </geometry>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://iai_rescue_quadrotor/meshes/iai_wasp.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    <xacro:sonar_sensor name="sonar" parent="base_link" ros_topic="sonar_height" update_rate="10" min_range="0.03" max_range="3.0" field_of_view="${40*pi/180}" ray_count="3">
+      <origin xyz="-0.26 0.0 -0.0165" rpy="0 ${90*pi/180} 0"/>
+    </xacro:sonar_sensor>
+
+  </xacro:macro>
+  <xacro:macro name="quadrotor_grasp_links_macro">
+    <link name="gripper_dock_link"/>
+    <joint name="gripper_dock_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="gripper_dock_link"/>
+      <origin xyz="0.0 0.0 0.05" rpy="0.0 ${pi} 0.0" />
+    </joint> 
+    
+    <link name="recharge_dock_link"/>
+    <joint name="recharge_dock_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="recharge_dock_link"/>
+      <origin xyz="0.0 0.0 -0.1" rpy="0.0 0.0 0.0" />
+    </joint> 
+  </xacro:macro>
+
+  <xacro:include filename="$(find hector_sensors_description)/urdf/generic_camera.urdf.xacro" />
+  <xacro:generic_camera name="front_cam" parent="base_link" ros_topic="camera/image" cam_info_topic="camera/camera_info" update_rate="30" res_x="320" res_y="240" image_format="R8G8B8" hfov="90">
+    <origin xyz="0.26 0.0 -0.0165" rpy="0 0 0"/>
+  </xacro:generic_camera>
+  
+  <xacro:include filename="$(find hector_quadrotor_gazebo)/urdf/quadrotor_plugins.gazebo.xacro" />
+  <xacro:quadrotor_base_macro />
+  <xacro:quadrotor_grasp_links_macro />
+  
+    <!-- Sonar height sensor -->
+    <!--
+    <xacro:sonar_sensor name="sonar" parent="base_link" ros_topic="sonar_height" update_rate="10" min_range="0.03" max_range="3.0" field_of_view="${40*pi/180}" ray_count="3">
+      <origin xyz="-0.16 0.0 -0.012" rpy="0 ${90*pi/180} 0"/>
+    </xacro:sonar_sensor>
+
+  </xacro:macro>
+    -->
+     
+    <!--xacro:include filename="$(find hector_quadrotor_gazebo)/urdf/quadrotor_plugins.gazebo.xacro" /-->
+</robot>
