@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 
-<sdf version="1.5">
+<sdf version="1.4">
   <model name="avalanche_victim">
     <static>true</static>
     <link name="avalanche_victim">
